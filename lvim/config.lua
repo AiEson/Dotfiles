@@ -202,7 +202,9 @@ lvim.builtin.treesitter.ensure_installed = {
 	"rust",
 	"java",
 	"yaml",
+	"latex",
 }
+
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
@@ -395,6 +397,12 @@ formatters.setup {
 
 lvim.plugins = {
 	{
+		"Pocco81/auto-save.nvim",
+		config = function()
+			require("auto-save").setup()
+		end,
+	},
+	{
 		"ntpeters/vim-better-whitespace",
 		config = function()
 			--			vim.g.better_whitespace_enabled=1
@@ -485,11 +493,19 @@ lvim.plugins = {
 	{
 		"ekickx/clipboard-image.nvim",
 	},
-	{ "folke/tokyonight.nvim" },
 	{
 		"folke/trouble.nvim",
 		cmd = "TroubleToggle",
 	},
+	{ "lervag/vimtex" },
+	{
+		"simrat39/symbols-outline.nvim",
+		config = function()
+			require('symbols-outline').setup()
+		end
+	},
+
+
 
 }
 
@@ -526,3 +542,10 @@ lvim.builtin.which_key.mappings["m"] = {
 	p = { "<cmd>PasteImg<cr>", "Paste Image" },
 	s = { "<cmd>MarkdownPreview<cr>", "Start Preview Server" },
 }
+
+-- LaTeX (LTeX-LS) setup --
+vim.cmd([[
+for f in split(glob('~/.config/lvim/vimscripts/*.vim'), '\n')
+    exe 'source' f
+endfor
+]])
