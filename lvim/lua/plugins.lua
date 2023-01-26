@@ -60,7 +60,7 @@ lvim.plugins = {
   -- Python Do Ge --
   {
     'kkoomen/vim-doge',
-    run = ':call doge#install()'
+    build = ':call doge#install()'
   },
   -- Python IDE
   -- You can switch between vritual environmnts.
@@ -83,9 +83,9 @@ lvim.plugins = {
     end,
   },
   -- You can run blocks of code like jupyter notebook.
-  { "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" },
+  { "dccsillag/magma-nvim", build = ":UpdateRemotePlugins" },
   { "ahmedkhalf/jupyter-nvim",
-    run = ":UpdateRemotePlugins",
+    build = ":UpdateRemotePlugins",
     config = function()
       require("jupyter-nvim").setup {
         -- your configuration comes here
